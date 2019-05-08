@@ -74,12 +74,16 @@ public class Main {
 	}
 
 	public void gamePlay() {
+		
+		
 		ArrayList<ArrayList<Card>> foundationTableau = SolitaireMethods.createFoundation();
-		ArrayList<ArrayList<Card>> maneouvereTableau = SolitaireMethods.createManeouverStacks(deck);
+		ArrayList<ArrayList<Card>> maneouvereTableau = SolitaireMethods.createManeouverLine(deck);
 		ArrayList<Card> talon = new ArrayList<Card>();
 		SolitaireMethods.drawCard(deck, draw, talon);
-		SolitaireMethods.sendCardToFoundation(foundationTableau, maneouvereTableau, talon);
-		SolitaireMethods.sendCardFromTalonToLine(foundationTableau, maneouvereTableau, talon);
-		SolitaireMethods.sendKingfromLineToEmptyLine(foundationTableau, maneouvereTableau, talon);
+		SolitaireMethods.moveCardToFoundation(foundationTableau, maneouvereTableau, talon);
+		SolitaireMethods.moveCardFromTalonToLine(foundationTableau, maneouvereTableau, talon);
+		SolitaireMethods.moveKingToEmptyLine(foundationTableau, maneouvereTableau, talon);
+		SolitaireMethods.moveCardFromLineToLine(foundationTableau, maneouvereTableau, talon);
+	
 	}
 }
